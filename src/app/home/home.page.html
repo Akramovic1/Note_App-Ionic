@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hamlets Note Taker
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-div ion-padding">
+    <h1>Your Notes</h1>
+    <div class="list">
+      <ion-list>
+        <ion-item-sliding *ngFor="let transaction of notesTransactions">
+          <ion-item>
+            <ion-label>
+              {{transaction.title}}
+            </ion-label>
+            <ion-label>
+              <p class="body">
+                {{transaction.note}}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteNote(transaction.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="primary">
+              <ion-icon name="create-outline" routerLink="/add-edit-note/edit">
+              </ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+    <ion-fab-button color="dark">
+      <ion-icon name="add-outline" routerLink="/add-edit-note/add"></ion-icon>
+    </ion-fab-button>
+  </div>
+</ion-content>

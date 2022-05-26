@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-icon name="arrow-back" class="ion-padding" routerLink="/home"></ion-icon>
+  <h2 style="padding-left:20px">
+    Hamlet Note Taker
+  </h2>
+  <div class="main-section">
+
+    <div class="form ion-padding ion-margin">
+      <h3>
+        {{isEdit ? 'Edit Note' : 'Add Note'}}
+      </h3>
+      <ion-input placeholder="Title" [(ngModel)]="title"></ion-input>
+      <ion-textarea placeholder="Note" [(ngModel)]="note"></ion-textarea>
+      <ion-button expand="block" color="primary" (click)="addNote()">{{isEdit ? 'Edit Note' : 'Add Note'}}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
